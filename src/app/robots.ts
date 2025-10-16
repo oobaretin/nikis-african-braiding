@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://www.braidsbyshisha.com/sitemap.xml',
+    sitemap: 'https://www.nikisafricanbraiding.com/sitemap.xml',
   };
 }

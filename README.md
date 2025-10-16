@@ -1,6 +1,6 @@
-# Braids by Shisha - Professional Hair Braiding Website
+# Niki's African Hair Braiding - Professional Hair Braiding Website
 
-A modern, professional website for Braids by Shisha, a hair braiding salon in Katy, Texas. Built with Next.js 14, TypeScript, and Tailwind CSS for optimal performance and user experience.
+A modern, professional website for Niki's African Hair Braiding, a hair braiding salon in Katy, Texas. Built with Next.js 14, TypeScript, and Tailwind CSS for optimal performance and user experience.
 
 ## 🚀 Features
 
@@ -65,7 +65,7 @@ src/
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd braids-by-shisha
+   cd nikis-african-braiding
    ```
 
 2. **Install dependencies**
@@ -202,8 +202,8 @@ For technical support or customization requests, please contact the development 
 
 ## 📄 License
 
-This project is proprietary software created for Braids by Shisha.
+This project is proprietary software created for Niki's African Hair Braiding.
 
 ---
 
-**Built with ❤️ for Braids by Shisha**
+**Built with ❤️ for Niki's African Hair Braiding**
