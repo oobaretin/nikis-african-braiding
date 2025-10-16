@@ -5,8 +5,19 @@ import { testimonials } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/Card';
 import { motion } from 'framer-motion';
 import { StarIcon } from '@heroicons/react/24/solid';
+import { useBooking } from '@/components/booking/BookingProvider';
 
 export const Testimonials: React.FC = () => {
+  const { openBookingModal } = useBooking();
+
+  const handleViewGallery = () => {
+    // For now, we'll scroll to the services section since we don't have a gallery page yet
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="section-padding bg-white">
       <div className="container-custom">
@@ -95,10 +106,16 @@ export const Testimonials: React.FC = () => {
                   Join hundreds of satisfied clients who trust Niki's African Hair Braiding for their hair braiding needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary">
+              <button 
+                className="btn-primary"
+                onClick={() => openBookingModal()}
+              >
                 Book Your Appointment
               </button>
-              <button className="btn-outline">
+              <button 
+                className="btn-outline"
+                onClick={handleViewGallery}
+              >
                 View Gallery
               </button>
             </div>
