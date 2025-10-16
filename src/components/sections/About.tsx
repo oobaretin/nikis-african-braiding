@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/Button';
 import { 
   HeartIcon, 
   UserGroupIcon, 
@@ -62,14 +61,6 @@ export const About: React.FC = () => {
               expertise and genuine care for our clients.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg">
-                Meet Our Team
-              </Button>
-              <Button variant="outline" size="lg">
-                Our Story
-              </Button>
-            </div>
           </motion.div>
 
           {/* Image */}
