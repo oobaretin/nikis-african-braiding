@@ -41,7 +41,7 @@ export const Header: React.FC = () => {
           <Link href="/" className="flex items-center space-x-1">
             <div className="w-24 h-24 md:w-28 md:h-28 rounded-lg overflow-hidden">
               <img 
-                src="/images/logo.png" 
+                src="/images/3AC920CF-4725-4C2A-978F-DC8CA411B4ED-removebg-preview.png" 
                 alt="Niki's African Hair Braiding Logo" 
                 className="w-full h-full object-contain"
               />
