@@ -13,15 +13,15 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-12 h-12 rounded-lg overflow-hidden">
+            <Link href="/" className="flex items-center space-x-3 mb-4">
+              <div className="w-20 h-20 rounded-lg overflow-hidden">
                 <img 
                   src="/images/3AC920CF-4725-4C2A-978F-DC8CA411B4ED-removebg-preview.png" 
                   alt="Niki's African Hair Braiding Logo" 
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="boldonse-regular text-lg text-primary-600">
+              <span className="boldonse-regular text-2xl text-primary-600">
                 Niki's African Hair Braiding
               </span>
             </Link>
