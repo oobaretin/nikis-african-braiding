@@ -38,7 +38,7 @@ export const Header: React.FC = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-1">
+          <Link href="/" className="flex items-center space-x-0.5">
             <div className="w-24 h-24 md:w-28 md:h-28 rounded-lg overflow-hidden">
               <img 
                 src="/images/3AC920CF-4725-4C2A-978F-DC8CA411B4ED-removebg-preview.png" 
