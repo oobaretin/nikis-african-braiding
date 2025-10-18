@@ -24,20 +24,20 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-white mb-4 md:mb-6 leading-tight px-4">
+          <h1 className="font-bold text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
             Niki's African Hair Braiding
             <span className="block text-primary-200">& Boho Hair Styles</span>
           </h1>
           
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed px-4">
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
             Professional African hair braiding and boho hair services in Katy, Texas. 
             Beautiful, long-lasting braids and trendy boho styles that enhance your natural beauty.
           </p>
 
-          <div className="flex justify-center px-4">
+          <div className="flex justify-center">
             <Button 
               size="lg" 
-              className="bg-white text-primary-600 hover:bg-primary-50 w-full sm:w-auto"
+              className="bg-white text-primary-600 hover:bg-primary-50"
               onClick={() => openBookingModal()}
             >
               Book Your Appointment
@@ -49,7 +49,7 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-3xl mx-auto px-4"
+            className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto"
           >
             <div className="text-center">
               <div className="text-3xl font-bold text-white mb-2">20+</div>

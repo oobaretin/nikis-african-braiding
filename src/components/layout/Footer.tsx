@@ -14,18 +14,18 @@ export const Footer: React.FC = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center space-x-3 mb-4">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden">
+              <div className="w-20 h-20 rounded-lg overflow-hidden">
                 <img 
                   src="/images/3AC920CF-4725-4C2A-978F-DC8CA411B4ED-removebg-preview.png" 
                   alt="Niki's African Hair Braiding Logo" 
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="boldonse-regular text-lg md:text-2xl text-primary-600 leading-tight">
+              <span className="boldonse-regular text-2xl text-primary-600">
                 Niki's African Hair Braiding
               </span>
             </Link>
-            <p className="text-secondary-300 mb-6 text-sm md:text-base">
+            <p className="text-secondary-300 mb-6">
               Transform your look with expert hair braiding services. Professional, 
               beautiful, and long-lasting braids in Katy, Texas.
             </p>
@@ -161,7 +161,7 @@ export const Footer: React.FC = () => {
         {/* Business Hours */}
         <div className="mt-12 pt-8 border-t border-secondary-800">
           <h3 className="font-display font-semibold text-lg mb-4">Business Hours</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
             {contactInfo.hours.map((hours) => (
               <div key={hours.day} className="text-center">
                 <p className="font-medium text-white">{hours.day}</p>

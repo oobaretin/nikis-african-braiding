@@ -47,16 +47,16 @@ export const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-bold text-3xl sm:text-4xl md:text-5xl text-secondary-900 mb-4">
+          <h2 className="font-bold text-4xl md:text-5xl text-secondary-900 mb-4">
             Get In Touch
           </h2>
-          <p className="text-lg sm:text-xl text-secondary-600 max-w-3xl mx-auto">
+          <p className="text-xl text-secondary-600 max-w-3xl mx-auto">
             Ready to transform your look? Contact us today to schedule your appointment 
             or ask any questions about our services.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
