@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
             <Link href="/" className="flex items-center space-x-3 mb-4">
               <div className="w-20 h-20 rounded-lg overflow-hidden">
                 <img 
-                  src="/images/3AC920CF-4725-4C2A-978F-DC8CA411B4ED-removebg-preview.png" 
+                  src="/images/F0D9487E-480C-4C51-B1FE-3DB72B3E6BBA-removebg-preview.png" 
                   alt="Niki's African Hair Braiding Logo" 
                   className="w-full h-full object-contain"
                 />
