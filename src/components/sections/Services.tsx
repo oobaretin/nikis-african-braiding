@@ -1,16 +1,15 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { services } from '@/lib/data';
 import { formatPrice } from '@/lib/utils';
 import { Card, CardContent, CardFooter } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { useBooking } from '@/components/booking/BookingProvider';
 import { motion } from 'framer-motion';
 import { StarIcon, ClockIcon } from '@heroicons/react/24/solid';
 
 export const Services: React.FC = () => {
-  const { openBookingModal } = useBooking();
 
   return (
     <section id="services" className="section-padding bg-secondary-50">
@@ -80,12 +79,13 @@ export const Services: React.FC = () => {
                 </CardContent>
 
                 <CardFooter>
-                  <Button 
-                    className="w-full"
-                    onClick={() => openBookingModal(service.id)}
-                  >
-                    Book This Service
-                  </Button>
+                  <Link href="/services">
+                    <Button 
+                      className="w-full"
+                    >
+                      Book This Service
+                    </Button>
+                  </Link>
                 </CardFooter>
               </Card>
             </motion.div>
@@ -102,12 +102,13 @@ export const Services: React.FC = () => {
           <p className="text-secondary-600 mb-6">
             Not sure which service is right for you?
           </p>
-          <Button 
-            variant="outline"
-            onClick={() => openBookingModal('consultation')}
-          >
-            Schedule a Consultation
-          </Button>
+          <Link href="/services">
+            <Button 
+              variant="outline"
+            >
+              Schedule a Consultation
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
