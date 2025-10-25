@@ -30,7 +30,9 @@ const ServiceMenu: React.FC = () => {
   };
 
   const handleBookingClick = (serviceName: string, variation: any) => {
-    openBookingModal(`${serviceName} - ${variation.name}`);
+    // Create a service identifier that includes category, subcategory, and variation
+    const serviceIdentifier = `${selectedCategory} - ${serviceName} - ${variation.name}`;
+    openBookingModal(serviceIdentifier);
   };
 
   return (

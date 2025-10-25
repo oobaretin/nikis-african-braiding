@@ -12,7 +12,7 @@ import { services } from '@/lib/data';
 import { formatPrice } from '@/lib/utils';
 
 const bookingSchema = z.object({
-  serviceId: z.string().min(1, 'Please select a service'),
+  serviceId: z.string().optional(),
   clientName: z.string().min(2, 'Name must be at least 2 characters'),
   clientEmail: z.string().email('Please enter a valid email address'),
   clientPhone: z.string().min(10, 'Please enter a valid phone number'),
@@ -57,6 +57,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   const selectedServiceId = watch('serviceId');
   const selectedServiceData = services.find(s => s.id === selectedServiceId);
+  
+  // Handle service from ServiceMenu (format: "Category - Subcategory - Variation")
+  const isServiceMenuService = selectedService && selectedService.includes(' - ');
+  const serviceMenuData = isServiceMenuService ? selectedService.split(' - ') : null;
 
   const onSubmit = async (data: BookingFormData) => {
     setIsSubmitting(true);
@@ -65,7 +69,21 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      console.log('Booking submitted:', data);
+      // Prepare booking data
+      const bookingData = {
+        ...data,
+        serviceDetails: isServiceMenuService ? {
+          category: serviceMenuData?.[0],
+          subcategory: serviceMenuData?.[1],
+          variation: serviceMenuData?.[2],
+          fullServiceName: selectedService
+        } : {
+          serviceId: data.serviceId,
+          serviceName: selectedServiceData?.name
+        }
+      };
+      
+      console.log('Booking submitted:', bookingData);
       
       // Reset form and close modal
       reset();
@@ -138,54 +156,82 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         className="space-y-4"
                       >
                         <h3 className="font-semibold text-lg text-secondary-900 mb-4">
-                          Select a Service
+                          {isServiceMenuService ? 'Selected Service' : 'Select a Service'}
                         </h3>
                         
-                        <div className="grid gap-4">
-                          {services.map((service) => (
-                            <label
-                              key={service.id}
-                              className={`relative cursor-pointer rounded-lg border-2 p-4 transition-all duration-200 ${
-                                selectedServiceId === service.id
-                                  ? 'border-primary-500 bg-primary-50'
-                                  : 'border-secondary-200 hover:border-secondary-300'
-                              }`}
-                            >
-                              <input
-                                type="radio"
-                                value={service.id}
-                                {...register('serviceId')}
-                                className="sr-only"
-                              />
-                              
-                              <div className="flex justify-between items-start">
-                                <div className="flex-1">
-                                  <h4 className="font-semibold text-secondary-900">
-                                    {service.name}
-                                  </h4>
-                                  <p className="text-secondary-600 text-sm mt-1">
-                                    {service.description}
-                                  </p>
-                                  <div className="flex items-center mt-2 text-sm text-secondary-500">
-                                    <ClockIcon className="w-4 h-4 mr-1" />
-                                    {service.duration}
-                                  </div>
-                                </div>
-                                
-                                <div className="text-right ml-4">
-                                  <div className="text-lg font-bold text-primary-600">
-                                    {formatPrice(service.price)}
-                                  </div>
-                                  {service.popular && (
-                                    <div className="text-xs text-accent-600 font-medium">
-                                      Popular
-                                    </div>
-                                  )}
+                        {isServiceMenuService ? (
+                          <div className="bg-primary-50 border-2 border-primary-200 rounded-lg p-4">
+                            <div className="flex justify-between items-start">
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-secondary-900">
+                                  {serviceMenuData?.[1]} - {serviceMenuData?.[2]}
+                                </h4>
+                                <p className="text-secondary-600 text-sm mt-1">
+                                  Category: {serviceMenuData?.[0]}
+                                </p>
+                                <div className="flex items-center mt-2 text-sm text-secondary-500">
+                                  <ClockIcon className="w-4 h-4 mr-1" />
+                                  Duration varies by style
                                 </div>
                               </div>
-                            </label>
-                          ))}
-                        </div>
+                              
+                              <div className="text-right ml-4">
+                                <div className="text-lg font-bold text-primary-600">
+                                  Contact for Pricing
+                                </div>
+                                <div className="text-xs text-accent-600 font-medium">
+                                  Custom Service
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="grid gap-4">
+                            {services.map((service) => (
+                              <label
+                                key={service.id}
+                                className={`relative cursor-pointer rounded-lg border-2 p-4 transition-all duration-200 ${
+                                  selectedServiceId === service.id
+                                    ? 'border-primary-500 bg-primary-50'
+                                    : 'border-secondary-200 hover:border-secondary-300'
+                                }`}
+                              >
+                                <input
+                                  type="radio"
+                                  value={service.id}
+                                  {...register('serviceId')}
+                                  className="sr-only"
+                                />
+                                
+                                <div className="flex justify-between items-start">
+                                  <div className="flex-1">
+                                    <h4 className="font-semibold text-secondary-900">
+                                      {service.name}
+                                    </h4>
+                                    <p className="text-secondary-600 text-sm mt-1">
+                                      {service.description}
+                                    </p>
+                                    <div className="flex items-center mt-2 text-sm text-secondary-500">
+                                      <ClockIcon className="w-4 h-4 mr-1" />
+                                      {service.duration}
+                                    </div>
+                                  </div>
+                                  
+                                  <div className="text-right ml-4">
+                                    <div className="text-lg font-bold text-primary-600">
+                                      {formatPrice(service.price)}
+                                    </div>
+                                    {service.popular && (
+                                      <div className="text-xs text-accent-600 font-medium">
+                                        Popular
+                                      </div>
+                                    )}
+                                  </div>
+                                </div>
+                              </label>
+                            ))}
+                          </div>
+                        )}
                         
                         {errors.serviceId && (
                           <p className="text-red-600 text-sm">{errors.serviceId.message}</p>
@@ -337,7 +383,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         <Button
                           type="button"
                           onClick={() => setCurrentStep(currentStep + 1)}
-                          disabled={!selectedServiceId}
+                          disabled={!selectedServiceId && !isServiceMenuService}
                         >
                           Next
                         </Button>
