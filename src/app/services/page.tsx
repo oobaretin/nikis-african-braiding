@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Services } from '@/components/sections/Services';
+import ServiceMenu from '@/components/sections/ServiceMenu';
 import { Testimonials } from '@/components/sections/Testimonials';
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div className="pt-20">
-      <Services />
+      <ServiceMenu />
       <Testimonials />
     </div>
   );
