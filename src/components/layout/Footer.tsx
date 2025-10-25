@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
                 />
               </div>
               <span className="boldonse-regular text-2xl text-primary-600">
-                Niki's African Hair Braiding
+                Niki&apos;s African Hair Braiding
               </span>
             </Link>
             <p className="text-secondary-300 mb-6">
@@ -183,7 +183,7 @@ export const Footer: React.FC = () => {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-secondary-800 text-center">
           <p className="text-secondary-400">
-            © {new Date().getFullYear()} Niki's African Hair Braiding. All rights reserved.
+            © {new Date().getFullYear()} Niki&apos;s African Hair Braiding. All rights reserved.
           </p>
           <p className="text-secondary-500 text-sm mt-2">
             Designed by{' '}

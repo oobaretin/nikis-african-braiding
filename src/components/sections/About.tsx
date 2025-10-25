@@ -45,7 +45,7 @@ export const About: React.FC = () => {
             viewport={{ once: true }}
           >
             <h2 className="font-bold text-4xl md:text-5xl text-secondary-900 mb-6">
-              About Niki's African Hair Braiding
+              About Niki&apos;s African Hair Braiding
             </h2>
             
             <p className="text-lg text-secondary-600 mb-6 leading-relaxed">
@@ -105,7 +105,7 @@ export const About: React.FC = () => {
               Why Choose Us
             </h3>
             <p className="text-lg text-secondary-600 max-w-2xl mx-auto">
-              We're committed to providing exceptional service and results that exceed your expectations.
+              We&apos;re committed to providing exceptional service and results that exceed your expectations.
             </p>
           </div>
 

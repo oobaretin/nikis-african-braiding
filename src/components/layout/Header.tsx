@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
               />
             </div>
             <span className="boldonse-regular text-xl md:text-2xl text-primary-600">
-              Niki's African Hair Braiding
+              Niki&apos;s African Hair Braiding
             </span>
           </Link>
 

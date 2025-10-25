@@ -1,12 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, Clock, Calendar } from 'lucide-react';
-import { useBooking } from '@/components/booking/BookingProvider';
+import { ChevronDown, ChevronRight, Clock } from 'lucide-react';
 import { SALON_DATA } from '@/lib/salonData';
 
 const ServiceMenu: React.FC = () => {
-  const { openBookingModal } = useBooking();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
   const [expandedVariations, setExpandedVariations] = useState<Record<string, boolean>>({});
@@ -29,11 +27,6 @@ const ServiceMenu: React.FC = () => {
     }
   };
 
-  const handleBookingClick = (serviceName: string, variation: any) => {
-    // Create a service identifier that includes category, subcategory, and variation
-    const serviceIdentifier = `${selectedCategory} - ${serviceName} - ${variation.name}`;
-    openBookingModal(serviceIdentifier);
-  };
 
   return (
     <section className="section-padding bg-secondary-50">
@@ -106,21 +99,16 @@ const ServiceMenu: React.FC = () => {
                           {data.variations.map((variation, idx) => (
                             <div
                               key={idx}
-                              onClick={() => handleBookingClick(subcategory, variation)}
-                              className="border-2 border-primary-200 rounded-lg p-4 hover:bg-primary-50 hover:border-primary-400 cursor-pointer transition-all duration-200 hover:shadow-md"
+                              className="border-2 border-primary-200 rounded-lg p-4 transition-all duration-200"
                             >
                               <div className="flex justify-between items-start mb-2">
                                 <h4 className="font-semibold text-secondary-900 flex-1">
                                   {variation.name}
                                 </h4>
                               </div>
-                              <div className="flex items-center text-sm text-secondary-600 mb-3">
+                              <div className="flex items-center text-sm text-secondary-600">
                                 <Clock size={14} className="mr-1" />
                                 {variation.duration}
-                              </div>
-                              <div className="flex items-center justify-center space-x-2 text-primary-600 font-semibold">
-                                <Calendar size={16} />
-                                <span>Click to Book</span>
                               </div>
                             </div>
                           ))}
