@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { ChevronDown, ChevronRight, Clock } from 'lucide-react';
+import { ChevronDown, ChevronRight, Clock, Calendar } from 'lucide-react';
+import { useBooking } from '@/components/booking/BookingProvider';
 import { SALON_DATA } from '@/lib/salonData';
 
 const ServiceMenu: React.FC = () => {
+  const { openBookingModal } = useBooking();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null);
   const [expandedVariations, setExpandedVariations] = useState<Record<string, boolean>>({});
@@ -26,6 +27,12 @@ const ServiceMenu: React.FC = () => {
     } else {
       setSelectedSubcategory(subcategory);
     }
+  };
+
+  const handleBookingClick = (serviceName: string, variation: any) => {
+    // Create a service identifier that includes category, subcategory, and variation
+    const serviceIdentifier = `${selectedCategory} - ${serviceName} - ${variation.name}`;
+    openBookingModal(serviceIdentifier);
   };
 
 
@@ -111,11 +118,13 @@ const ServiceMenu: React.FC = () => {
                                 <Clock size={14} className="mr-1" />
                                 {variation.duration}
                               </div>
-                              <Link href="/services">
-                                <button className="w-full bg-primary-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-700 transition-colors duration-200 text-sm">
-                                  Click to Book
-                                </button>
-                              </Link>
+                              <button 
+                                onClick={() => handleBookingClick(subcategory, variation)}
+                                className="w-full bg-primary-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-700 transition-colors duration-200 text-sm flex items-center justify-center"
+                              >
+                                <Calendar size={14} className="mr-2" />
+                                Click to Book
+                              </button>
                             </div>
                           ))}
                         </div>
