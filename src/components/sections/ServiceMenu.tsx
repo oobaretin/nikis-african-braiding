@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { ChevronDown, ChevronRight, Clock } from 'lucide-react';
 import { SALON_DATA } from '@/lib/salonData';
 
@@ -99,17 +100,22 @@ const ServiceMenu: React.FC = () => {
                           {data.variations.map((variation, idx) => (
                             <div
                               key={idx}
-                              className="border-2 border-primary-200 rounded-lg p-4 transition-all duration-200"
+                              className="border-2 border-primary-200 rounded-lg p-4 transition-all duration-200 hover:border-primary-400 hover:shadow-md"
                             >
-                              <div className="flex justify-between items-start mb-2">
+                              <div className="flex justify-between items-start mb-3">
                                 <h4 className="font-semibold text-secondary-900 flex-1">
                                   {variation.name}
                                 </h4>
                               </div>
-                              <div className="flex items-center text-sm text-secondary-600">
+                              <div className="flex items-center text-sm text-secondary-600 mb-3">
                                 <Clock size={14} className="mr-1" />
                                 {variation.duration}
                               </div>
+                              <Link href="/services">
+                                <button className="w-full bg-primary-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-700 transition-colors duration-200 text-sm">
+                                  Click to Book
+                                </button>
+                              </Link>
                             </div>
                           ))}
                         </div>
