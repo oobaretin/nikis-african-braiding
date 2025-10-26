@@ -73,7 +73,7 @@ const ServiceCategoryGrid: React.FC = () => {
               >
                 <h3 className="text-xl font-bold mb-2">{category}</h3>
                 <p className="text-sm opacity-80">
-                  {serviceCount} Service{serviceCount !== 1 ? 's' : ''}
+                  {serviceCount} style{serviceCount !== 1 ? 's' : ''}
                 </p>
               </motion.button>
             );
