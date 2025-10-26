@@ -37,7 +37,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center -space-x-1">
-            <div className="w-24 h-24 md:w-28 md:h-28 rounded-lg overflow-hidden">
+            <div className="w-28 h-28 md:w-32 md:h-32 rounded-lg overflow-hidden">
               <img 
                 src="/images/F0D9487E-480C-4C51-B1FE-3DB72B3E6BBA-removebg-preview.png" 
                 alt="Niki's African Hair Braiding Logo" 
