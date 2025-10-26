@@ -34,7 +34,7 @@ export const Header: React.FC = () => {
       className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-lg transition-all duration-300"
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center -space-x-1">
             <div className="w-28 h-28 md:w-32 md:h-32 rounded-lg overflow-hidden">
