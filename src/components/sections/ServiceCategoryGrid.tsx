@@ -35,10 +35,10 @@ const ServiceCategoryGrid: React.FC = () => {
     openBookingModal(serviceIdentifier);
   };
 
-  // Calculate total services count for each category
+  // Calculate total services count for each category (count subcategories, not variations)
   const getCategoryServiceCount = (category: string) => {
     const subcategories = SALON_DATA[category];
-    return Object.values(subcategories).reduce((total, data) => total + data.variations.length, 0);
+    return Object.keys(subcategories).length;
   };
 
   return (
@@ -179,11 +179,10 @@ const ServiceCategoryGrid: React.FC = () => {
           <div className="text-center">
             <div className="text-3xl font-bold text-primary-600 mb-2">
               {Object.values(SALON_DATA).reduce((total, subcategories) => 
-                total + Object.values(subcategories).reduce((subTotal, data) => 
-                  subTotal + data.variations.length, 0), 0
+                total + Object.keys(subcategories).length, 0
               )}+
             </div>
-            <div className="text-secondary-600">Total Service Options</div>
+            <div className="text-secondary-600">Service Types</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-primary-600 mb-2">
