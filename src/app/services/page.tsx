@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import ServiceCategoryGrid from '@/components/sections/ServiceCategoryGrid';
+import ServiceMinimalList from '@/components/sections/ServiceMinimalList';
 import { Testimonials } from '@/components/sections/Testimonials';
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div className="pt-20">
-      <ServiceCategoryGrid />
+      <ServiceMinimalList />
       <Testimonials />
     </div>
   );
