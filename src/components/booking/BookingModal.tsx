@@ -415,8 +415,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                               className="sr-only"
                             />
                             <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                                <span className="text-blue-600 font-bold text-sm">Z</span>
+                              <div className="w-8 h-8 flex items-center justify-center">
+                                <img 
+                                  src="/images/zelle-logo1.png" 
+                                  alt="Zelle" 
+                                  className="w-full h-full object-contain"
+                                />
                               </div>
                               <div className="flex-1">
                                 <h4 className="font-semibold text-secondary-900">Zelle</h4>
@@ -438,8 +442,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                               className="sr-only"
                             />
                             <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                                <span className="text-green-600 font-bold text-sm">$</span>
+                              <div className="w-8 h-8 flex items-center justify-center">
+                                <img 
+                                  src="/images/cashapp.logo1.png" 
+                                  alt="Cash App" 
+                                  className="w-full h-full object-contain"
+                                />
                               </div>
                               <div className="flex-1">
                                 <h4 className="font-semibold text-secondary-900">Cash App</h4>
