@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { ChevronDownIcon, ChevronRightIcon, ClockIcon, CalendarIcon } from '@heroicons/react/24/outline';
 import { useBooking } from '@/components/booking/BookingProvider';
 import { SALON_DATA } from '@/lib/salonData';
@@ -201,18 +200,6 @@ const ServiceMinimalList: React.FC = () => {
           </div>
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-12">
-          <p className="text-secondary-600 mb-4">
-            Ready to book your next appointment?
-          </p>
-          <Link
-            href="/gallery"
-            className="inline-block bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors duration-200"
-          >
-            View Gallery
-          </Link>
-        </div>
       </div>
     </section>
   );
