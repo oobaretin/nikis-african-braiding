@@ -129,19 +129,19 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="relative w-full max-w-2xl"
             >
-              <Card className="max-h-[90vh] overflow-y-auto">
-                <CardHeader className="flex flex-row items-center justify-between">
+              <Card className="max-h-[90vh] overflow-y-auto shadow-2xl border-0 bg-white/95 backdrop-blur-sm">
+                <CardHeader className="flex flex-row items-center justify-between bg-gradient-to-r from-primary-50 to-primary-100 border-b border-primary-200">
                   <div>
-                    <h2 className="font-semibold text-2xl text-secondary-900">
+                    <h2 className="font-bold text-2xl text-secondary-900">
                       Book Your Appointment
                     </h2>
-                    <p className="text-secondary-600 mt-1">
+                    <p className="text-secondary-600 mt-1 font-medium">
                       Step {currentStep} of 4
                     </p>
                   </div>
                   <button
                     onClick={handleClose}
-                    className="p-2 hover:bg-secondary-100 rounded-lg transition-colors duration-200"
+                    className="p-2 hover:bg-white/50 rounded-lg transition-colors duration-200"
                   >
                     <XMarkIcon className="w-6 h-6 text-secondary-500" />
                   </button>
@@ -259,7 +259,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                             <input
                               type="text"
                               {...register('clientName')}
-                              className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                              className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
                               placeholder="Your full name"
                             />
                             {errors.clientName && (
@@ -274,7 +274,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                             <input
                               type="email"
                               {...register('clientEmail')}
-                              className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                              className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
                               placeholder="your@email.com"
                             />
                             {errors.clientEmail && (
@@ -290,7 +290,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                           <input
                             type="tel"
                             {...register('clientPhone')}
-                            className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                            className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
                             placeholder="(281) 555-0123"
                           />
                           {errors.clientPhone && (
@@ -319,7 +319,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                             type="date"
                             {...register('preferredDate')}
                             min={new Date().toISOString().split('T')[0]}
-                            className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                            className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
                           />
                           {errors.preferredDate && (
                             <p className="text-red-600 text-sm mt-1">{errors.preferredDate.message}</p>
@@ -362,7 +362,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                           <textarea
                             {...register('notes')}
                             rows={3}
-                            className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none"
+                            className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none transition-all duration-200 hover:border-primary-300"
                             placeholder="Any special requests or information we should know..."
                           />
                         </div>
@@ -380,12 +380,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                           Preferred Payment Method *
                         </h3>
                         
-                        <div className="space-y-3">
+                        <div className="grid grid-cols-1 gap-4">
                           {/* Cash Option */}
-                          <label className={`relative cursor-pointer rounded-lg border-2 p-4 transition-all duration-200 ${
+                          <label className={`relative cursor-pointer rounded-xl border-2 p-5 transition-all duration-300 transform hover:scale-[1.02] ${
                             watch('paymentMethod') === 'cash'
-                              ? 'border-primary-500 bg-primary-50'
-                              : 'border-secondary-200 hover:border-secondary-300'
+                              ? 'border-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 shadow-lg'
+                              : 'border-secondary-200 hover:border-primary-300 hover:shadow-md bg-white'
                           }`}>
                             <input
                               type="radio"
@@ -393,20 +393,31 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                               {...register('paymentMethod')}
                               className="sr-only"
                             />
-                            <div className="flex items-center space-x-3">
-                              <div className="text-2xl">💰</div>
-                              <div className="flex-1">
-                                <h4 className="font-semibold text-secondary-900">Cash</h4>
-                                <p className="text-sm text-secondary-600">Pay in person at appointment</p>
+                            <div className="flex items-center space-x-4">
+                              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                                <span className="text-2xl">💰</span>
                               </div>
+                              <div className="flex-1">
+                                <h4 className="font-bold text-lg text-secondary-900">Cash</h4>
+                                <p className="text-sm text-secondary-600 mt-1">Pay in person at appointment</p>
+                                <div className="flex items-center mt-2">
+                                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                  <span className="text-xs text-green-600 font-medium">Instant Payment</span>
+                                </div>
+                              </div>
+                              {watch('paymentMethod') === 'cash' && (
+                                <div className="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
+                                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                                </div>
+                              )}
                             </div>
                           </label>
 
                           {/* Zelle Option */}
-                          <label className={`relative cursor-pointer rounded-lg border-2 p-4 transition-all duration-200 ${
+                          <label className={`relative cursor-pointer rounded-xl border-2 p-5 transition-all duration-300 transform hover:scale-[1.02] ${
                             watch('paymentMethod') === 'zelle'
-                              ? 'border-primary-500 bg-primary-50'
-                              : 'border-secondary-200 hover:border-secondary-300'
+                              ? 'border-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 shadow-lg'
+                              : 'border-secondary-200 hover:border-primary-300 hover:shadow-md bg-white'
                           }`}>
                             <input
                               type="radio"
@@ -414,8 +425,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                               {...register('paymentMethod')}
                               className="sr-only"
                             />
-                            <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 flex items-center justify-center">
+                            <div className="flex items-center space-x-4">
+                              <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center p-2">
                                 <img 
                                   src="/images/zelle-logo1.png" 
                                   alt="Zelle" 
@@ -423,17 +434,26 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                                 />
                               </div>
                               <div className="flex-1">
-                                <h4 className="font-semibold text-secondary-900">Zelle</h4>
-                                <p className="text-sm text-secondary-600">Send to: [Your Zelle Info]</p>
+                                <h4 className="font-bold text-lg text-secondary-900">Zelle</h4>
+                                <p className="text-sm text-secondary-600 mt-1">Send to: [Your Zelle Info]</p>
+                                <div className="flex items-center mt-2">
+                                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                                  <span className="text-xs text-blue-600 font-medium">Bank Transfer</span>
+                                </div>
                               </div>
+                              {watch('paymentMethod') === 'zelle' && (
+                                <div className="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
+                                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                                </div>
+                              )}
                             </div>
                           </label>
 
                           {/* Cash App Option */}
-                          <label className={`relative cursor-pointer rounded-lg border-2 p-4 transition-all duration-200 ${
+                          <label className={`relative cursor-pointer rounded-xl border-2 p-5 transition-all duration-300 transform hover:scale-[1.02] ${
                             watch('paymentMethod') === 'cashapp'
-                              ? 'border-primary-500 bg-primary-50'
-                              : 'border-secondary-200 hover:border-secondary-300'
+                              ? 'border-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 shadow-lg'
+                              : 'border-secondary-200 hover:border-primary-300 hover:shadow-md bg-white'
                           }`}>
                             <input
                               type="radio"
@@ -441,8 +461,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                               {...register('paymentMethod')}
                               className="sr-only"
                             />
-                            <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 flex items-center justify-center">
+                            <div className="flex items-center space-x-4">
+                              <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center p-2">
                                 <img 
                                   src="/images/cashapp.logo1.png" 
                                   alt="Cash App" 
@@ -450,9 +470,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                                 />
                               </div>
                               <div className="flex-1">
-                                <h4 className="font-semibold text-secondary-900">Cash App</h4>
-                                <p className="text-sm text-secondary-600">Send to: [Your Cash App Info]</p>
+                                <h4 className="font-bold text-lg text-secondary-900">Cash App</h4>
+                                <p className="text-sm text-secondary-600 mt-1">Send to: [Your Cash App Info]</p>
+                                <div className="flex items-center mt-2">
+                                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                  <span className="text-xs text-green-600 font-medium">Mobile Payment</span>
+                                </div>
                               </div>
+                              {watch('paymentMethod') === 'cashapp' && (
+                                <div className="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
+                                  <div className="w-2 h-2 bg-white rounded-full"></div>
+                                </div>
+                              )}
                             </div>
                           </label>
                         </div>
@@ -470,8 +499,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         variant="outline"
                         onClick={() => setCurrentStep(Math.max(1, currentStep - 1))}
                         disabled={currentStep === 1}
+                        className="px-6 py-3 font-medium"
                       >
-                        Previous
+                        ← Previous
                       </Button>
                       
                       {currentStep < 4 ? (
@@ -483,16 +513,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                             (currentStep === 2 && (!watch('clientName') || !watch('clientEmail') || !watch('clientPhone'))) ||
                             (currentStep === 3 && (!watch('preferredDate') || !watch('preferredTime')))
                           }
+                          className="px-6 py-3 font-medium bg-primary-600 hover:bg-primary-700"
                         >
-                          Next
+                          Next →
                         </Button>
                       ) : (
                         <Button
                           type="submit"
                           loading={isSubmitting}
                           disabled={isSubmitting || !watch('paymentMethod')}
+                          className="px-8 py-3 font-medium bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 shadow-lg"
                         >
-                          {isSubmitting ? 'Booking...' : 'Book Appointment'}
+                          {isSubmitting ? 'Booking...' : '✨ Book Appointment'}
                         </Button>
                       )}
                     </div>
