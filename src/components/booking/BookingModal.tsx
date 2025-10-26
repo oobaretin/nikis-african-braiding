@@ -18,6 +18,7 @@ const bookingSchema = z.object({
   clientPhone: z.string().min(10, 'Please enter a valid phone number'),
   preferredDate: z.string().min(1, 'Please select a date'),
   preferredTime: z.string().min(1, 'Please select a time'),
+  paymentMethod: z.string().min(1, 'Please select a payment method'),
   notes: z.string().optional(),
 });
 
@@ -135,7 +136,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       Book Your Appointment
                     </h2>
                     <p className="text-secondary-600 mt-1">
-                      Step {currentStep} of 3
+                      Step {currentStep} of 4
                     </p>
                   </div>
                   <button
@@ -368,6 +369,92 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       </motion.div>
                     )}
 
+                    {/* Step 4: Payment Method */}
+                    {currentStep === 4 && (
+                      <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className="space-y-4"
+                      >
+                        <h3 className="font-semibold text-lg text-secondary-900 mb-4">
+                          Preferred Payment Method *
+                        </h3>
+                        
+                        <div className="space-y-3">
+                          {/* Cash Option */}
+                          <label className={`relative cursor-pointer rounded-lg border-2 p-4 transition-all duration-200 ${
+                            watch('paymentMethod') === 'cash'
+                              ? 'border-primary-500 bg-primary-50'
+                              : 'border-secondary-200 hover:border-secondary-300'
+                          }`}>
+                            <input
+                              type="radio"
+                              value="cash"
+                              {...register('paymentMethod')}
+                              className="sr-only"
+                            />
+                            <div className="flex items-center space-x-3">
+                              <div className="text-2xl">💰</div>
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-secondary-900">Cash</h4>
+                                <p className="text-sm text-secondary-600">Pay in person at appointment</p>
+                              </div>
+                            </div>
+                          </label>
+
+                          {/* Zelle Option */}
+                          <label className={`relative cursor-pointer rounded-lg border-2 p-4 transition-all duration-200 ${
+                            watch('paymentMethod') === 'zelle'
+                              ? 'border-primary-500 bg-primary-50'
+                              : 'border-secondary-200 hover:border-secondary-300'
+                          }`}>
+                            <input
+                              type="radio"
+                              value="zelle"
+                              {...register('paymentMethod')}
+                              className="sr-only"
+                            />
+                            <div className="flex items-center space-x-3">
+                              <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <span className="text-blue-600 font-bold text-sm">Z</span>
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-secondary-900">Zelle</h4>
+                                <p className="text-sm text-secondary-600">Send to: [Your Zelle Info]</p>
+                              </div>
+                            </div>
+                          </label>
+
+                          {/* Cash App Option */}
+                          <label className={`relative cursor-pointer rounded-lg border-2 p-4 transition-all duration-200 ${
+                            watch('paymentMethod') === 'cashapp'
+                              ? 'border-primary-500 bg-primary-50'
+                              : 'border-secondary-200 hover:border-secondary-300'
+                          }`}>
+                            <input
+                              type="radio"
+                              value="cashapp"
+                              {...register('paymentMethod')}
+                              className="sr-only"
+                            />
+                            <div className="flex items-center space-x-3">
+                              <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                                <span className="text-green-600 font-bold text-sm">$</span>
+                              </div>
+                              <div className="flex-1">
+                                <h4 className="font-semibold text-secondary-900">Cash App</h4>
+                                <p className="text-sm text-secondary-600">Send to: [Your Cash App Info]</p>
+                              </div>
+                            </div>
+                          </label>
+                        </div>
+                        
+                        {errors.paymentMethod && (
+                          <p className="text-red-600 text-sm">{errors.paymentMethod.message}</p>
+                        )}
+                      </motion.div>
+                    )}
+
                     {/* Navigation Buttons */}
                     <div className="flex justify-between pt-6 border-t border-secondary-200">
                       <Button
@@ -379,11 +466,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         Previous
                       </Button>
                       
-                      {currentStep < 3 ? (
+                      {currentStep < 4 ? (
                         <Button
                           type="button"
                           onClick={() => setCurrentStep(currentStep + 1)}
-                          disabled={!selectedServiceId && !isServiceMenuService}
+                          disabled={
+                            (currentStep === 1 && !selectedServiceId && !isServiceMenuService) ||
+                            (currentStep === 2 && (!watch('clientName') || !watch('clientEmail') || !watch('clientPhone'))) ||
+                            (currentStep === 3 && (!watch('preferredDate') || !watch('preferredTime')))
+                          }
                         >
                           Next
                         </Button>
@@ -391,7 +482,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         <Button
                           type="submit"
                           loading={isSubmitting}
-                          disabled={isSubmitting}
+                          disabled={isSubmitting || !watch('paymentMethod')}
                         >
                           {isSubmitting ? 'Booking...' : 'Book Appointment'}
                         </Button>
