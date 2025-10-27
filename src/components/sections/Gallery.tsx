@@ -9,7 +9,7 @@ import {
   EyeIcon 
 } from '@heroicons/react/24/outline';
 
-// Gallery images data
+// Gallery images data - All hair braiding work screenshots
 const galleryImages = [
   {
     id: 1,
@@ -122,6 +122,237 @@ const galleryImages = [
     alt: 'Hair braiding showcase',
     category: 'Showcase',
     description: 'Beautiful hair braiding results'
+  },
+  {
+    id: 17,
+    src: '/images/Screenshot 2025-10-27 at 1.21.40 PM.png',
+    alt: 'Professional hair styling',
+    category: 'Professional Work',
+    description: 'Expert hair braiding techniques'
+  },
+  {
+    id: 18,
+    src: '/images/Screenshot 2025-10-27 at 1.21.55 PM.png',
+    alt: 'Box braids showcase',
+    category: 'Box Braids',
+    description: 'Classic box braids work'
+  },
+  {
+    id: 19,
+    src: '/images/Screenshot 2025-10-27 at 1.22.05 PM.png',
+    alt: 'Hair transformation work',
+    category: 'Showcase',
+    description: 'Beautiful hair transformations'
+  },
+  {
+    id: 20,
+    src: '/images/Screenshot 2025-10-27 at 1.22.18 PM.png',
+    alt: 'Elegant styling work',
+    category: 'Elegant Styles',
+    description: 'Sophisticated hair designs'
+  },
+  {
+    id: 21,
+    src: '/images/Screenshot 2025-10-27 at 1.22.28 PM.png',
+    alt: 'Professional braiding showcase',
+    category: 'Professional Work',
+    description: 'High-quality hair services'
+  },
+  {
+    id: 22,
+    src: '/images/Screenshot 2025-10-27 at 1.23.00 PM.png',
+    alt: 'Hair styling portfolio',
+    category: 'Portfolio',
+    description: 'Stunning hair styling work'
+  },
+  {
+    id: 23,
+    src: '/images/Screenshot 2025-10-27 at 1.23.32 PM.png',
+    alt: 'Box braids transformation',
+    category: 'Box Braids',
+    description: 'Beautiful box braids work'
+  },
+  {
+    id: 24,
+    src: '/images/Screenshot 2025-10-27 at 1.24.04 PM.png',
+    alt: 'Hair braiding showcase',
+    category: 'Showcase',
+    description: 'Amazing hair braiding results'
+  },
+  {
+    id: 25,
+    src: '/images/Screenshot 2025-10-27 at 1.24.23 PM.png',
+    alt: 'Professional styling work',
+    category: 'Professional Work',
+    description: 'Expert hair braiding techniques'
+  },
+  {
+    id: 26,
+    src: '/images/Screenshot 2025-10-27 at 1.24.48 PM.png',
+    alt: 'Elegant hair designs',
+    category: 'Elegant Styles',
+    description: 'Sophisticated braid work'
+  },
+  {
+    id: 27,
+    src: '/images/Screenshot 2025-10-27 at 1.25.06 PM.png',
+    alt: 'Hair transformation showcase',
+    category: 'Showcase',
+    description: 'Beautiful hair transformations'
+  },
+  {
+    id: 28,
+    src: '/images/Screenshot 2025-10-27 at 1.25.33 PM.png',
+    alt: 'Box braids portfolio',
+    category: 'Box Braids',
+    description: 'Classic box braids styling'
+  },
+  {
+    id: 29,
+    src: '/images/Screenshot 2025-10-27 at 12.44.17 PM.png',
+    alt: 'Professional hair work',
+    category: 'Professional Work',
+    description: 'High-quality hair services'
+  },
+  {
+    id: 30,
+    src: '/images/Screenshot 2025-10-27 at 12.45.52 PM.png',
+    alt: 'Hair styling gallery',
+    category: 'Gallery',
+    description: 'Portfolio of beautiful work'
+  },
+  {
+    id: 31,
+    src: '/images/Screenshot 2025-10-27 at 12.47.34 PM.png',
+    alt: 'Elegant braid styles',
+    category: 'Elegant Styles',
+    description: 'Sophisticated hair designs'
+  },
+  {
+    id: 32,
+    src: '/images/Screenshot 2025-10-27 at 12.48.33 PM.png',
+    alt: 'Hair braiding showcase',
+    category: 'Showcase',
+    description: 'Beautiful hair braiding results'
+  },
+  {
+    id: 33,
+    src: '/images/Screenshot 2025-10-27 at 12.48.46 PM.png',
+    alt: 'Professional styling work',
+    category: 'Professional Work',
+    description: 'Expert hair braiding techniques'
+  },
+  {
+    id: 34,
+    src: '/images/Screenshot 2025-10-27 at 12.49.21 PM.png',
+    alt: 'Box braids transformation',
+    category: 'Box Braids',
+    description: 'Stunning box braids work'
+  },
+  {
+    id: 35,
+    src: '/images/Screenshot 2025-10-27 at 12.49.44 PM.png',
+    alt: 'Hair styling portfolio',
+    category: 'Portfolio',
+    description: 'Stunning hair styling work'
+  },
+  {
+    id: 36,
+    src: '/images/Screenshot 2025-10-27 at 12.50.11 PM.png',
+    alt: 'Elegant hair designs',
+    category: 'Elegant Styles',
+    description: 'Sophisticated braid work'
+  },
+  {
+    id: 37,
+    src: '/images/Screenshot 2025-10-27 at 12.51.38 PM.png',
+    alt: 'Hair transformation showcase',
+    category: 'Showcase',
+    description: 'Amazing hair transformations'
+  },
+  {
+    id: 38,
+    src: '/images/Screenshot 2025-10-27 at 12.52.00 PM.png',
+    alt: 'Professional braiding work',
+    category: 'Professional Work',
+    description: 'Expert craftsmanship in action'
+  },
+  {
+    id: 39,
+    src: '/images/Screenshot 2025-10-27 at 12.52.19 PM.png',
+    alt: 'Box braids styling',
+    category: 'Box Braids',
+    description: 'Beautiful box braids work'
+  },
+  {
+    id: 40,
+    src: '/images/Screenshot 2025-10-27 at 12.52.37 PM.png',
+    alt: 'Hair styling gallery',
+    category: 'Gallery',
+    description: 'Portfolio of beautiful work'
+  },
+  {
+    id: 41,
+    src: '/images/Screenshot 2025-10-27 at 12.53.03 PM.png',
+    alt: 'Elegant hair styles',
+    category: 'Elegant Styles',
+    description: 'Sophisticated hair designs'
+  },
+  {
+    id: 42,
+    src: '/images/Screenshot 2025-10-27 at 12.53.26 PM.png',
+    alt: 'Hair braiding showcase',
+    category: 'Showcase',
+    description: 'Beautiful hair braiding results'
+  },
+  {
+    id: 43,
+    src: '/images/Screenshot 2025-10-27 at 12.54.02 PM.png',
+    alt: 'Professional styling work',
+    category: 'Professional Work',
+    description: 'High-quality hair services'
+  },
+  {
+    id: 44,
+    src: '/images/Screenshot 2025-10-27 at 12.58.36 PM.png',
+    alt: 'Box braids portfolio',
+    category: 'Box Braids',
+    description: 'Classic box braids styling'
+  },
+  {
+    id: 45,
+    src: '/images/Screenshot 2025-10-27 at 12.58.57 PM.png',
+    alt: 'Hair transformation work',
+    category: 'Showcase',
+    description: 'Beautiful hair transformations'
+  },
+  {
+    id: 46,
+    src: '/images/Screenshot 2025-10-27 at 12.59.11 PM.png',
+    alt: 'Elegant braid designs',
+    category: 'Elegant Styles',
+    description: 'Sophisticated braid work'
+  },
+  {
+    id: 47,
+    src: '/images/Screenshot 2025-10-27 at 12.59.24 PM.png',
+    alt: 'Professional hair work',
+    category: 'Professional Work',
+    description: 'Expert hair braiding techniques'
+  },
+  {
+    id: 48,
+    src: '/images/Screenshot 2025-10-27 at 12.59.38 PM.png',
+    alt: 'Hair styling portfolio',
+    category: 'Portfolio',
+    description: 'Stunning hair styling work'
+  },
+  {
+    id: 49,
+    src: '/images/Screenshot 2025-10-27 at 12.59.59 PM.png',
+    alt: 'Box braids showcase',
+    category: 'Box Braids',
+    description: 'Beautiful box braids work'
   }
 ];
 
