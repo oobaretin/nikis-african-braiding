@@ -121,18 +121,18 @@ export const SALON_DATA: SalonData = {
     "Lemonade Braids": {
       description: "Side-parted braids inspired by Beyoncé's iconic look",
       variations: [
-        { name: "Shoulder Length Large", duration: "3-4 hours" },
+        { name: "Shoulder Length Large", duration: "2-3 hours" },
         { name: "Shoulder Length Medium", duration: "3-4 hours" },
-        { name: "Shoulder Length Small", duration: "3-4 hours" },
+        { name: "Shoulder Length Small", duration: "4-5 hours" },
         { name: "Mid Back Length Large", duration: "3-4 hours" },
-        { name: "Mid Back Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Large", duration: "3-4 hours" },
-        { name: "Waist Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Large", duration: "3-4 hours" },
-        { name: "Waist Length Small", duration: "3-4 hours" },
-        { name: "Thigh Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Small", duration: "3-4 hours" }
+        { name: "Mid Back Length Medium", duration: "4-5 hours" },
+        { name: "Mid Back Length Small", duration: "5-6 hours" },
+        { name: "Waist Length Large", duration: "4-5 hours" },
+        { name: "Waist Length Medium", duration: "5-6 hours" },
+        { name: "Thigh Length Large", duration: "5-6 hours" },
+        { name: "Waist Length Small", duration: "6-7 hours" },
+        { name: "Thigh Length Medium", duration: "6-7 hours" },
+        { name: "Thigh Length Small", duration: "7-8 hours" }
       ]
     },
     "Bora Bora Braids": {
@@ -157,107 +157,107 @@ export const SALON_DATA: SalonData = {
     "Havana Twist": {
       description: "Chunky twists with added hair for volume",
       variations: [
-        { name: "Shoulder Length Large", duration: "3-4 hours" },
+        { name: "Shoulder Length Large", duration: "2-3 hours" },
         { name: "Shoulder Length Medium", duration: "3-4 hours" },
-        { name: "Waist Length Medium", duration: "3-4 hours" },
+        { name: "Waist Length Medium", duration: "4-5 hours" },
         { name: "Mid Back Length Large", duration: "3-4 hours" },
-        { name: "Shoulder Length Small", duration: "3-4 hours" },
-        { name: "Mid Back Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Small", duration: "3-4 hours" },
-        { name: "Thigh Length Large", duration: "3-4 hours" },
-        { name: "Thigh Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Large", duration: "3-4 hours" }
+        { name: "Shoulder Length Small", duration: "4-5 hours" },
+        { name: "Mid Back Length Medium", duration: "4-5 hours" },
+        { name: "Mid Back Length Small", duration: "5-6 hours" },
+        { name: "Waist Length Small", duration: "5-6 hours" },
+        { name: "Thigh Length Large", duration: "4-5 hours" },
+        { name: "Thigh Length Medium", duration: "5-6 hours" },
+        { name: "Thigh Length Small", duration: "6-7 hours" },
+        { name: "Waist Length Large", duration: "4-5 hours" }
       ]
     },
     "Senegalese Twists": {
       description: "Thin, elegant twists with added hair",
       variations: [
-        { name: "Shoulder Length Medium", duration: "3-4 hours" },
-        { name: "Shoulder Length Small", duration: "3-4 hours" },
-        { name: "Mid Back Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Medium", duration: "3-4 hours" },
-        { name: "Waist Length Small", duration: "3-4 hours" },
-        { name: "Thigh Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Small", duration: "3-4 hours" }
+        { name: "Shoulder Length Medium", duration: "4-5 hours" },
+        { name: "Shoulder Length Small", duration: "5-6 hours" },
+        { name: "Mid Back Length Medium", duration: "5-6 hours" },
+        { name: "Mid Back Length Small", duration: "6-7 hours" },
+        { name: "Waist Length Medium", duration: "6-7 hours" },
+        { name: "Waist Length Small", duration: "7-8 hours" },
+        { name: "Thigh Length Medium", duration: "7-8 hours" },
+        { name: "Thigh Length Small", duration: "8-9 hours" }
       ]
     },
     "Passion Twist": {
       description: "Soft, curly twists with a natural look",
       variations: [
-        { name: "Shoulder Length Large", duration: "3-4 hours" },
+        { name: "Shoulder Length Large", duration: "2-3 hours" },
         { name: "Shoulder Length Medium", duration: "3-4 hours" },
         { name: "Mid Back Length Large", duration: "3-4 hours" },
-        { name: "Shoulder Length Small", duration: "3-4 hours" },
-        { name: "Mid Back Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Large", duration: "3-4 hours" },
-        { name: "Waist Length Medium", duration: "3-4 hours" },
-        { name: "Waist Length Small", duration: "3-4 hours" },
-        { name: "Thigh Length Large", duration: "3-4 hours" },
-        { name: "Thigh Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Small", duration: "3-4 hours" }
+        { name: "Shoulder Length Small", duration: "4-5 hours" },
+        { name: "Mid Back Length Medium", duration: "4-5 hours" },
+        { name: "Mid Back Length Small", duration: "5-6 hours" },
+        { name: "Waist Length Large", duration: "4-5 hours" },
+        { name: "Waist Length Medium", duration: "5-6 hours" },
+        { name: "Waist Length Small", duration: "6-7 hours" },
+        { name: "Thigh Length Large", duration: "5-6 hours" },
+        { name: "Thigh Length Medium", duration: "6-7 hours" },
+        { name: "Thigh Length Small", duration: "7-8 hours" }
       ]
     },
     "Kinky Twists": {
       description: "Kinky textured twists for natural look",
       variations: [
-        { name: "Shoulder Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Medium", duration: "3-4 hours" },
-        { name: "Shoulder Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Small", duration: "3-4 hours" },
-        { name: "Thigh Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Small", duration: "3-4 hours" }
+        { name: "Shoulder Length Medium", duration: "4-5 hours" },
+        { name: "Mid Back Length Medium", duration: "5-6 hours" },
+        { name: "Shoulder Length Small", duration: "5-6 hours" },
+        { name: "Waist Length Medium", duration: "6-7 hours" },
+        { name: "Mid Back Length Small", duration: "6-7 hours" },
+        { name: "Waist Length Small", duration: "7-8 hours" },
+        { name: "Thigh Length Medium", duration: "7-8 hours" },
+        { name: "Thigh Length Small", duration: "8-9 hours" }
       ]
     },
     "Marley Twists": {
       description: "Marley hair twists for natural texture",
       variations: [
-        { name: "Shoulder Length Large", duration: "3-4 hours" },
+        { name: "Shoulder Length Large", duration: "2-3 hours" },
         { name: "Shoulder Length Medium", duration: "3-4 hours" },
         { name: "Mid Back Length Large", duration: "3-4 hours" },
-        { name: "Shoulder Length Small", duration: "3-4 hours" },
-        { name: "Mid Back Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Large", duration: "3-4 hours" },
-        { name: "Waist Length Medium", duration: "3-4 hours" },
-        { name: "Waist Length Small", duration: "3-4 hours" },
-        { name: "Thigh Length Large", duration: "3-4 hours" },
-        { name: "Thigh Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Small", duration: "3-4 hours" }
+        { name: "Shoulder Length Small", duration: "4-5 hours" },
+        { name: "Mid Back Length Medium", duration: "4-5 hours" },
+        { name: "Mid Back Length Small", duration: "5-6 hours" },
+        { name: "Waist Length Large", duration: "4-5 hours" },
+        { name: "Waist Length Medium", duration: "5-6 hours" },
+        { name: "Waist Length Small", duration: "6-7 hours" },
+        { name: "Thigh Length Large", duration: "5-6 hours" },
+        { name: "Thigh Length Medium", duration: "6-7 hours" },
+        { name: "Thigh Length Small", duration: "7-8 hours" }
       ]
     },
     "Nubian Twist": {
       description: "Nubian style twists with unique texture",
       variations: [
-        { name: "Shoulder Length Large", duration: "3-4 hours" },
+        { name: "Shoulder Length Large", duration: "2-3 hours" },
         { name: "Shoulder Length Medium", duration: "3-4 hours" },
-        { name: "Shoulder Length Small", duration: "3-4 hours" },
+        { name: "Shoulder Length Small", duration: "4-5 hours" },
         { name: "Mid Back Length Large", duration: "3-4 hours" },
-        { name: "Mid Back Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Large", duration: "3-4 hours" },
-        { name: "Waist Length Medium", duration: "3-4 hours" },
-        { name: "Waist Length Small", duration: "3-4 hours" },
-        { name: "Thigh Length Large", duration: "3-4 hours" },
-        { name: "Thigh Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Small", duration: "3-4 hours" }
+        { name: "Mid Back Length Medium", duration: "4-5 hours" },
+        { name: "Mid Back Length Small", duration: "5-6 hours" },
+        { name: "Waist Length Large", duration: "4-5 hours" },
+        { name: "Waist Length Medium", duration: "5-6 hours" },
+        { name: "Waist Length Small", duration: "6-7 hours" },
+        { name: "Thigh Length Large", duration: "5-6 hours" },
+        { name: "Thigh Length Medium", duration: "6-7 hours" },
+        { name: "Thigh Length Small", duration: "7-8 hours" }
       ]
     },
     "Comb Twist": {
       description: "Comb twist technique for natural styling",
       variations: [
-        { name: "Standard", duration: "3-4 hours" }
+        { name: "Standard", duration: "2-3 hours" }
       ]
     },
     "Two Strand Twist": {
       description: "Classic two-strand twists",
       variations: [
-        { name: "Standard", duration: "3-4 hours" }
+        { name: "Standard", duration: "2-3 hours" }
       ]
     }
   },
@@ -265,52 +265,52 @@ export const SALON_DATA: SalonData = {
     "Goddess Locs": {
       description: "Goddess style faux locs with added hair",
       variations: [
-        { name: "Shoulder Length Large", duration: "3-4 hours" },
-        { name: "Shoulder Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Large", duration: "3-4 hours" },
-        { name: "Shoulder Length Small", duration: "3-4 hours" },
-        { name: "Mid Back Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Large", duration: "3-4 hours" },
-        { name: "Waist Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Large", duration: "3-4 hours" },
-        { name: "Thigh Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Small", duration: "3-4 hours" }
+        { name: "Shoulder Length Large", duration: "4-5 hours" },
+        { name: "Shoulder Length Medium", duration: "5-6 hours" },
+        { name: "Mid Back Length Large", duration: "5-6 hours" },
+        { name: "Shoulder Length Small", duration: "6-7 hours" },
+        { name: "Mid Back Length Medium", duration: "6-7 hours" },
+        { name: "Mid Back Length Small", duration: "7-8 hours" },
+        { name: "Waist Length Small", duration: "7-8 hours" },
+        { name: "Waist Length Large", duration: "6-7 hours" },
+        { name: "Waist Length Medium", duration: "7-8 hours" },
+        { name: "Thigh Length Large", duration: "7-8 hours" },
+        { name: "Thigh Length Medium", duration: "8-9 hours" },
+        { name: "Thigh Length Small", duration: "9-10 hours" }
       ]
     },
     "Butterfly/Distressed Locs": {
       description: "Butterfly and distressed style faux locs",
       variations: [
-        { name: "Shoulder Length Large", duration: "3-4 hours" },
-        { name: "Shoulder Length Medium", duration: "3-4 hours" },
-        { name: "Shoulder Length Small", duration: "3-4 hours" },
-        { name: "Mid Back Length Large", duration: "3-4 hours" },
-        { name: "Mid Back Length Medium", duration: "3-4 hours" },
-        { name: "Waist Length Small", duration: "3-4 hours" },
-        { name: "Mid Back Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Large", duration: "3-4 hours" },
-        { name: "Waist Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Large", duration: "3-4 hours" },
-        { name: "Thigh Length Medium", duration: "3-4 hours" },
-        { name: "Thigh Length Small", duration: "3-4 hours" }
+        { name: "Shoulder Length Large", duration: "4-5 hours" },
+        { name: "Shoulder Length Medium", duration: "5-6 hours" },
+        { name: "Shoulder Length Small", duration: "6-7 hours" },
+        { name: "Mid Back Length Large", duration: "5-6 hours" },
+        { name: "Mid Back Length Medium", duration: "6-7 hours" },
+        { name: "Waist Length Small", duration: "7-8 hours" },
+        { name: "Mid Back Length Small", duration: "7-8 hours" },
+        { name: "Waist Length Large", duration: "6-7 hours" },
+        { name: "Waist Length Medium", duration: "7-8 hours" },
+        { name: "Thigh Length Large", duration: "7-8 hours" },
+        { name: "Thigh Length Medium", duration: "8-9 hours" },
+        { name: "Thigh Length Small", duration: "9-10 hours" }
       ]
     },
     "Bohemian Locs": {
       description: "Bohemian style faux locs with natural texture",
       variations: [
-        { name: "Shoulder Length Large", duration: "3-4 hours" },
-        { name: "Shoulder Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Large", duration: "3-4 hours" },
-        { name: "Shoulder Length Small", duration: "3-4 hours" },
-        { name: "Mid Back Length Medium", duration: "3-4 hours" },
-        { name: "Mid Back Length Small", duration: "3-4 hours" },
-        { name: "Waist Length Large", duration: "3-4 hours" },
-        { name: "Waist Length Medium", duration: "3-4 hours" },
-        { name: "Waist Length Small", duration: "3-4 hours" },
-        { name: "Thigh Length Small", duration: "3-4 hours" },
-        { name: "Thigh Length Large", duration: "3-4 hours" },
-        { name: "Thigh Length Medium", duration: "3-4 hours" }
+        { name: "Shoulder Length Large", duration: "4-5 hours" },
+        { name: "Shoulder Length Medium", duration: "5-6 hours" },
+        { name: "Mid Back Length Large", duration: "5-6 hours" },
+        { name: "Shoulder Length Small", duration: "6-7 hours" },
+        { name: "Mid Back Length Medium", duration: "6-7 hours" },
+        { name: "Mid Back Length Small", duration: "7-8 hours" },
+        { name: "Waist Length Large", duration: "6-7 hours" },
+        { name: "Waist Length Medium", duration: "7-8 hours" },
+        { name: "Waist Length Small", duration: "8-9 hours" },
+        { name: "Thigh Length Small", duration: "8-9 hours" },
+        { name: "Thigh Length Large", duration: "7-8 hours" },
+        { name: "Thigh Length Medium", duration: "8-9 hours" }
       ]
     }
   },
