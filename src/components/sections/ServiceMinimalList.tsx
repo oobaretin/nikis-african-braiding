@@ -44,7 +44,7 @@ const ServiceMinimalList: React.FC = () => {
     <section className="section-padding bg-white">
       <div className="container-custom max-w-4xl">
         <div className="text-center mb-12">
-          <h2 className="font-bold text-3xl md:text-4xl text-secondary-900 mb-4">
+          <h2 className="font-bold text-4xl md:text-5xl text-secondary-900 mb-4">
             Our Services
           </h2>
           <p className="text-lg text-secondary-600 max-w-2xl mx-auto">
