@@ -449,35 +449,35 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                             </div>
                           </label>
 
-                          {/* Cash App Option */}
+                          {/* PayPal Option */}
                           <label className={`relative cursor-pointer rounded-xl border-2 p-5 transition-all duration-300 transform hover:scale-[1.02] ${
-                            watch('paymentMethod') === 'cashapp'
+                            watch('paymentMethod') === 'paypal'
                               ? 'border-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 shadow-lg'
                               : 'border-secondary-200 hover:border-primary-300 hover:shadow-md bg-white'
                           }`}>
                             <input
                               type="radio"
-                              value="cashapp"
+                              value="paypal"
                               {...register('paymentMethod')}
                               className="sr-only"
                             />
                             <div className="flex items-center space-x-4">
-                              <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center p-2">
+                              <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center p-2">
                                 <img 
-                                  src="/images/cashapp.logo1.png" 
-                                  alt="Cash App" 
+                                  src="/images/Screenshot_2025-11-03_at_12.10.13_PM-removebg-preview.png" 
+                                  alt="PayPal" 
                                   className="w-full h-full object-contain"
                                 />
                               </div>
                               <div className="flex-1">
-                                <h4 className="font-bold text-lg text-secondary-900">Cash App</h4>
-                                <p className="text-sm text-secondary-600 mt-1">Send to: [Your Cash App Info]</p>
+                                <h4 className="font-bold text-lg text-secondary-900">PayPal</h4>
+                                <p className="text-sm text-secondary-600 mt-1">$20 deposit required at booking</p>
                                 <div className="flex items-center mt-2">
-                                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                                  <span className="text-xs text-green-600 font-medium">Mobile Payment</span>
+                                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                                  <span className="text-xs text-blue-600 font-medium">Online Payment</span>
                                 </div>
                               </div>
-                              {watch('paymentMethod') === 'cashapp' && (
+                              {watch('paymentMethod') === 'paypal' && (
                                 <div className="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
                                   <div className="w-2 h-2 bg-white rounded-full"></div>
                                 </div>
