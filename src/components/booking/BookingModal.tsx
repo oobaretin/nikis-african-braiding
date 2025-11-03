@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/Button';
 import { Card, CardContent, CardHeader } from '@/components/ui/Card';
 import { services } from '@/lib/data';
 import { formatPrice } from '@/lib/utils';
+import { SALON_DATA } from '@/lib/salonData';
 
 const bookingSchema = z.object({
   serviceId: z.string().optional(),
@@ -61,6 +62,29 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   // Handle service from ServiceMenu (format: "Category - Subcategory - Variation")
   const isServiceMenuService = selectedService && selectedService.includes(' - ');
   const serviceMenuData = isServiceMenuService ? selectedService.split(' - ') : null;
+
+  // Get duration for the selected service
+  const getServiceDuration = (): string | null => {
+    // If a regular service is selected from the list
+    if (selectedServiceData) {
+      return selectedServiceData.duration;
+    }
+    // If a ServiceMenu service is selected (from prop)
+    if (isServiceMenuService && serviceMenuData) {
+      const [category, subcategory, variation] = serviceMenuData;
+      const categoryData = SALON_DATA[category];
+      if (categoryData) {
+        const subcategoryData = categoryData[subcategory];
+        if (subcategoryData) {
+          const variationData = subcategoryData.variations.find(v => v.name === variation);
+          return variationData?.duration || null;
+        }
+      }
+    }
+    return null;
+  };
+
+  const serviceDuration = getServiceDuration();
 
   const onSubmit = async (data: BookingFormData) => {
     setIsSubmitting(true);
@@ -164,7 +188,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                               </p>
                               <div className="flex items-center mt-2 text-sm text-secondary-500">
                                 <ClockIcon className="w-4 h-4 mr-1" />
-                                Duration varies by style
+                                {serviceDuration || 'Duration varies by style'}
                               </div>
                             </div>
                             
@@ -290,6 +314,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       <h3 className="font-semibold text-lg text-secondary-900 border-b border-secondary-200 pb-2">
                         Select Date & Time
                       </h3>
+                      
+                      {(selectedServiceId || isServiceMenuService) && serviceDuration && (
+                        <div className="bg-primary-50 border border-primary-200 rounded-lg p-4">
+                          <div className="flex items-center space-x-2">
+                            <ClockIcon className="w-5 h-5 text-primary-600" />
+                            <div>
+                              <p className="text-sm font-medium text-secondary-700">Estimated Duration</p>
+                              <p className="text-lg font-bold text-primary-600">{serviceDuration}</p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                       
                       <div>
                         <label className="block text-sm font-medium text-secondary-700 mb-2">
