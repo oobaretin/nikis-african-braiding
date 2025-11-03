@@ -40,7 +40,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   onClose,
   selectedService
 }) => {
-  const [currentStep, setCurrentStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -88,7 +87,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       
       // Reset form and close modal
       reset();
-      setCurrentStep(1);
       onClose();
       
       // Show success message (you could use a toast notification here)
@@ -104,7 +102,6 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   const handleClose = () => {
     reset();
-    setCurrentStep(1);
     onClose();
   };
 
@@ -136,7 +133,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       Book Your Appointment
                     </h2>
                     <p className="text-secondary-600 mt-1 font-medium">
-                      Step {currentStep} of 4
+                      Fill out the form below to schedule your appointment
                     </p>
                   </div>
                   <button
@@ -148,385 +145,336 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </CardHeader>
 
                 <CardContent>
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                    {/* Step 1: Service Selection */}
-                    {currentStep === 1 && (
-                      <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="space-y-4"
-                      >
-                        <h3 className="font-semibold text-lg text-secondary-900 mb-4">
-                          {isServiceMenuService ? 'Selected Service' : 'Select a Service'}
-                        </h3>
-                        
-                        {isServiceMenuService ? (
-                          <div className="bg-primary-50 border-2 border-primary-200 rounded-lg p-4">
-                            <div className="flex justify-between items-start">
-                              <div className="flex-1">
-                                <h4 className="font-semibold text-secondary-900">
-                                  {serviceMenuData?.[1]} - {serviceMenuData?.[2]}
-                                </h4>
-                                <p className="text-secondary-600 text-sm mt-1">
-                                  Category: {serviceMenuData?.[0]}
-                                </p>
-                                <div className="flex items-center mt-2 text-sm text-secondary-500">
-                                  <ClockIcon className="w-4 h-4 mr-1" />
-                                  Duration varies by style
-                                </div>
-                              </div>
-                              
-                              <div className="text-right ml-4">
-                                <div className="text-lg font-bold text-primary-600">
-                                  Contact for Pricing
-                                </div>
-                                <div className="text-xs text-accent-600 font-medium">
-                                  Custom Service
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="grid gap-4">
-                            {services.map((service) => (
-                              <label
-                                key={service.id}
-                                className={`relative cursor-pointer rounded-lg border-2 p-4 transition-all duration-200 ${
-                                  selectedServiceId === service.id
-                                    ? 'border-primary-500 bg-primary-50'
-                                    : 'border-secondary-200 hover:border-secondary-300'
-                                }`}
-                              >
-                                <input
-                                  type="radio"
-                                  value={service.id}
-                                  {...register('serviceId')}
-                                  className="sr-only"
-                                />
-                                
-                                <div className="flex justify-between items-start">
-                                  <div className="flex-1">
-                                    <h4 className="font-semibold text-secondary-900">
-                                      {service.name}
-                                    </h4>
-                                    <p className="text-secondary-600 text-sm mt-1">
-                                      {service.description}
-                                    </p>
-                                    <div className="flex items-center mt-2 text-sm text-secondary-500">
-                                      <ClockIcon className="w-4 h-4 mr-1" />
-                                      {service.duration}
-                                    </div>
-                                  </div>
-                                  
-                                  <div className="text-right ml-4">
-                                    <div className="text-lg font-bold text-primary-600">
-                                      {formatPrice(service.price)}
-                                    </div>
-                                    {service.popular && (
-                                      <div className="text-xs text-accent-600 font-medium">
-                                        Popular
-                                      </div>
-                                    )}
-                                  </div>
-                                </div>
-                              </label>
-                            ))}
-                          </div>
-                        )}
-                        
-                        {errors.serviceId && (
-                          <p className="text-red-600 text-sm">{errors.serviceId.message}</p>
-                        )}
-                      </motion.div>
-                    )}
-
-                    {/* Step 2: Personal Information */}
-                    {currentStep === 2 && (
-                      <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="space-y-4"
-                      >
-                        <h3 className="font-semibold text-lg text-secondary-900 mb-4">
-                          Your Information
-                        </h3>
-                        
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div>
-                            <label className="block text-sm font-medium text-secondary-700 mb-2">
-                              Full Name *
-                            </label>
-                            <input
-                              type="text"
-                              {...register('clientName')}
-                              className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
-                              placeholder="Your full name"
-                            />
-                            {errors.clientName && (
-                              <p className="text-red-600 text-sm mt-1">{errors.clientName.message}</p>
-                            )}
-                          </div>
-                          
-                          <div>
-                            <label className="block text-sm font-medium text-secondary-700 mb-2">
-                              Email Address *
-                            </label>
-                            <input
-                              type="email"
-                              {...register('clientEmail')}
-                              className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
-                              placeholder="your@email.com"
-                            />
-                            {errors.clientEmail && (
-                              <p className="text-red-600 text-sm mt-1">{errors.clientEmail.message}</p>
-                            )}
-                          </div>
-                        </div>
-                        
-                        <div>
-                          <label className="block text-sm font-medium text-secondary-700 mb-2">
-                            Phone Number *
-                          </label>
-                          <input
-                            type="tel"
-                            {...register('clientPhone')}
-                            className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
-                            placeholder="(281) 555-0123"
-                          />
-                          {errors.clientPhone && (
-                            <p className="text-red-600 text-sm mt-1">{errors.clientPhone.message}</p>
-                          )}
-                        </div>
-                      </motion.div>
-                    )}
-
-                    {/* Step 3: Date & Time */}
-                    {currentStep === 3 && (
-                      <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="space-y-4"
-                      >
-                        <h3 className="font-semibold text-lg text-secondary-900 mb-4">
-                          Select Date & Time
-                        </h3>
-                        
-                        <div>
-                          <label className="block text-sm font-medium text-secondary-700 mb-2">
-                            Preferred Date *
-                          </label>
-                          <input
-                            type="date"
-                            {...register('preferredDate')}
-                            min={new Date().toISOString().split('T')[0]}
-                            className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
-                          />
-                          {errors.preferredDate && (
-                            <p className="text-red-600 text-sm mt-1">{errors.preferredDate.message}</p>
-                          )}
-                        </div>
-                        
-                        <div>
-                          <label className="block text-sm font-medium text-secondary-700 mb-2">
-                            Preferred Time *
-                          </label>
-                          <div className="grid grid-cols-3 gap-2">
-                            {timeSlots.map((time) => (
-                              <label
-                                key={time}
-                                className={`relative cursor-pointer rounded-lg border-2 p-3 text-center transition-all duration-200 ${
-                                  watch('preferredTime') === time
-                                    ? 'border-primary-500 bg-primary-50 text-primary-700'
-                                    : 'border-secondary-200 hover:border-secondary-300'
-                                }`}
-                              >
-                                <input
-                                  type="radio"
-                                  value={time}
-                                  {...register('preferredTime')}
-                                  className="sr-only"
-                                />
-                                {time}
-                              </label>
-                            ))}
-                          </div>
-                          {errors.preferredTime && (
-                            <p className="text-red-600 text-sm mt-1">{errors.preferredTime.message}</p>
-                          )}
-                        </div>
-                        
-                        <div>
-                          <label className="block text-sm font-medium text-secondary-700 mb-2">
-                            Additional Notes (Optional)
-                          </label>
-                          <textarea
-                            {...register('notes')}
-                            rows={3}
-                            className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none transition-all duration-200 hover:border-primary-300"
-                            placeholder="Any special requests or information we should know..."
-                          />
-                        </div>
-                      </motion.div>
-                    )}
-
-                    {/* Step 4: Payment Method */}
-                    {currentStep === 4 && (
-                      <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="space-y-4"
-                      >
-                        <h3 className="font-semibold text-lg text-secondary-900 mb-4">
-                          Preferred Payment Method *
-                        </h3>
-                        
-                        <div className="grid grid-cols-1 gap-4">
-                          {/* Cash Option */}
-                          <label className={`relative cursor-pointer rounded-xl border-2 p-5 transition-all duration-300 transform hover:scale-[1.02] ${
-                            watch('paymentMethod') === 'cash'
-                              ? 'border-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 shadow-lg'
-                              : 'border-secondary-200 hover:border-primary-300 hover:shadow-md bg-white'
-                          }`}>
-                            <input
-                              type="radio"
-                              value="cash"
-                              {...register('paymentMethod')}
-                              className="sr-only"
-                            />
-                            <div className="flex items-center space-x-4">
-                              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                                <span className="text-2xl">💰</span>
-                              </div>
-                              <div className="flex-1">
-                                <h4 className="font-bold text-lg text-secondary-900">Cash</h4>
-                                <p className="text-sm text-secondary-600 mt-1">Pay in person at appointment</p>
-                                <div className="flex items-center mt-2">
-                                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                                  <span className="text-xs text-green-600 font-medium">Instant Payment</span>
-                                </div>
-                              </div>
-                              {watch('paymentMethod') === 'cash' && (
-                                <div className="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
-                                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                                </div>
-                              )}
-                            </div>
-                          </label>
-
-                          {/* Zelle Option */}
-                          <label className={`relative cursor-pointer rounded-xl border-2 p-5 transition-all duration-300 transform hover:scale-[1.02] ${
-                            watch('paymentMethod') === 'zelle'
-                              ? 'border-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 shadow-lg'
-                              : 'border-secondary-200 hover:border-primary-300 hover:shadow-md bg-white'
-                          }`}>
-                            <input
-                              type="radio"
-                              value="zelle"
-                              {...register('paymentMethod')}
-                              className="sr-only"
-                            />
-                            <div className="flex items-center space-x-4">
-                              <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center p-2">
-                                <img 
-                                  src="/images/zelle-logo1.png" 
-                                  alt="Zelle" 
-                                  className="w-full h-full object-contain"
-                                />
-                              </div>
-                              <div className="flex-1">
-                                <h4 className="font-bold text-lg text-secondary-900">Zelle</h4>
-                                <p className="text-sm text-secondary-600 mt-1">Send to: [Your Zelle Info]</p>
-                                <div className="flex items-center mt-2">
-                                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                                  <span className="text-xs text-blue-600 font-medium">Bank Transfer</span>
-                                </div>
-                              </div>
-                              {watch('paymentMethod') === 'zelle' && (
-                                <div className="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
-                                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                                </div>
-                              )}
-                            </div>
-                          </label>
-
-                          {/* PayPal Option */}
-                          <label className={`relative cursor-pointer rounded-xl border-2 p-5 transition-all duration-300 transform hover:scale-[1.02] ${
-                            watch('paymentMethod') === 'paypal'
-                              ? 'border-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 shadow-lg'
-                              : 'border-secondary-200 hover:border-primary-300 hover:shadow-md bg-white'
-                          }`}>
-                            <input
-                              type="radio"
-                              value="paypal"
-                              {...register('paymentMethod')}
-                              className="sr-only"
-                            />
-                            <div className="flex items-center space-x-4">
-                              <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center p-2">
-                                <img 
-                                  src="/images/Screenshot_2025-11-03_at_12.10.13_PM-removebg-preview.png" 
-                                  alt="PayPal" 
-                                  className="w-full h-full object-contain"
-                                />
-                              </div>
-                              <div className="flex-1">
-                                <h4 className="font-bold text-lg text-secondary-900">PayPal</h4>
-                                <p className="text-sm text-secondary-600 mt-1">$20 deposit required at booking</p>
-                                <div className="flex items-center mt-2">
-                                  <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                                  <span className="text-xs text-blue-600 font-medium">Online Payment</span>
-                                </div>
-                              </div>
-                              {watch('paymentMethod') === 'paypal' && (
-                                <div className="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
-                                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                                </div>
-                              )}
-                            </div>
-                          </label>
-                        </div>
-                        
-                        {errors.paymentMethod && (
-                          <p className="text-red-600 text-sm">{errors.paymentMethod.message}</p>
-                        )}
-                      </motion.div>
-                    )}
-
-                    {/* Navigation Buttons */}
-                    <div className="flex justify-between pt-6 border-t border-secondary-200">
-                      <Button
-                        type="button"
-                        variant="outline"
-                        onClick={() => setCurrentStep(Math.max(1, currentStep - 1))}
-                        disabled={currentStep === 1}
-                        className="px-6 py-3 font-medium"
-                      >
-                        ← Previous
-                      </Button>
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+                    {/* Service Selection */}
+                    <div className="space-y-4">
+                      <h3 className="font-semibold text-lg text-secondary-900 border-b border-secondary-200 pb-2">
+                        {isServiceMenuService ? 'Selected Service' : 'Select a Service'}
+                      </h3>
                       
-                      {currentStep < 4 ? (
-                        <Button
-                          type="button"
-                          onClick={() => setCurrentStep(currentStep + 1)}
-                          disabled={
-                            (currentStep === 1 && !selectedServiceId && !isServiceMenuService) ||
-                            (currentStep === 2 && (!watch('clientName') || !watch('clientEmail') || !watch('clientPhone'))) ||
-                            (currentStep === 3 && (!watch('preferredDate') || !watch('preferredTime')))
-                          }
-                          className="px-6 py-3 font-medium bg-primary-600 hover:bg-primary-700"
-                        >
-                          Next →
-                        </Button>
+                      {isServiceMenuService ? (
+                        <div className="bg-primary-50 border-2 border-primary-200 rounded-lg p-4">
+                          <div className="flex justify-between items-start">
+                            <div className="flex-1">
+                              <h4 className="font-semibold text-secondary-900">
+                                {serviceMenuData?.[1]} - {serviceMenuData?.[2]}
+                              </h4>
+                              <p className="text-secondary-600 text-sm mt-1">
+                                Category: {serviceMenuData?.[0]}
+                              </p>
+                              <div className="flex items-center mt-2 text-sm text-secondary-500">
+                                <ClockIcon className="w-4 h-4 mr-1" />
+                                Duration varies by style
+                              </div>
+                            </div>
+                            
+                            <div className="text-right ml-4">
+                              <div className="text-lg font-bold text-primary-600">
+                                Contact for Pricing
+                              </div>
+                              <div className="text-xs text-accent-600 font-medium">
+                                Custom Service
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       ) : (
-                        <Button
-                          type="submit"
-                          loading={isSubmitting}
-                          disabled={isSubmitting || !watch('paymentMethod')}
-                          className="px-8 py-3 font-medium bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 shadow-lg"
-                        >
-                          {isSubmitting ? 'Booking...' : '✨ Book Appointment'}
-                        </Button>
+                        <div className="grid gap-4">
+                          {services.map((service) => (
+                            <label
+                              key={service.id}
+                              className={`relative cursor-pointer rounded-lg border-2 p-4 transition-all duration-200 ${
+                                selectedServiceId === service.id
+                                  ? 'border-primary-500 bg-primary-50'
+                                  : 'border-secondary-200 hover:border-secondary-300'
+                              }`}
+                            >
+                              <input
+                                type="radio"
+                                value={service.id}
+                                {...register('serviceId')}
+                                className="sr-only"
+                              />
+                              
+                              <div className="flex justify-between items-start">
+                                <div className="flex-1">
+                                  <h4 className="font-semibold text-secondary-900">
+                                    {service.name}
+                                  </h4>
+                                  <p className="text-secondary-600 text-sm mt-1">
+                                    {service.description}
+                                  </p>
+                                  <div className="flex items-center mt-2 text-sm text-secondary-500">
+                                    <ClockIcon className="w-4 h-4 mr-1" />
+                                    {service.duration}
+                                  </div>
+                                </div>
+                                
+                                <div className="text-right ml-4">
+                                  <div className="text-lg font-bold text-primary-600">
+                                    {formatPrice(service.price)}
+                                  </div>
+                                  {service.popular && (
+                                    <div className="text-xs text-accent-600 font-medium">
+                                      Popular
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </label>
+                          ))}
+                        </div>
                       )}
+                      
+                      {errors.serviceId && (
+                        <p className="text-red-600 text-sm">{errors.serviceId.message}</p>
+                      )}
+                    </div>
+
+                    {/* Personal Information */}
+                    <div className="space-y-4">
+                      <h3 className="font-semibold text-lg text-secondary-900 border-b border-secondary-200 pb-2">
+                        Your Information
+                      </h3>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label className="block text-sm font-medium text-secondary-700 mb-2">
+                            Full Name *
+                          </label>
+                          <input
+                            type="text"
+                            {...register('clientName')}
+                            className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
+                            placeholder="Your full name"
+                          />
+                          {errors.clientName && (
+                            <p className="text-red-600 text-sm mt-1">{errors.clientName.message}</p>
+                          )}
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-secondary-700 mb-2">
+                            Email Address *
+                          </label>
+                          <input
+                            type="email"
+                            {...register('clientEmail')}
+                            className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
+                            placeholder="your@email.com"
+                          />
+                          {errors.clientEmail && (
+                            <p className="text-red-600 text-sm mt-1">{errors.clientEmail.message}</p>
+                          )}
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-secondary-700 mb-2">
+                          Phone Number *
+                        </label>
+                        <input
+                          type="tel"
+                          {...register('clientPhone')}
+                          className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
+                          placeholder="(281) 555-0123"
+                        />
+                        {errors.clientPhone && (
+                          <p className="text-red-600 text-sm mt-1">{errors.clientPhone.message}</p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Date & Time */}
+                    <div className="space-y-4">
+                      <h3 className="font-semibold text-lg text-secondary-900 border-b border-secondary-200 pb-2">
+                        Select Date & Time
+                      </h3>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-secondary-700 mb-2">
+                          Preferred Date *
+                        </label>
+                        <input
+                          type="date"
+                          {...register('preferredDate')}
+                          min={new Date().toISOString().split('T')[0]}
+                          className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 hover:border-primary-300"
+                        />
+                        {errors.preferredDate && (
+                          <p className="text-red-600 text-sm mt-1">{errors.preferredDate.message}</p>
+                        )}
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-secondary-700 mb-2">
+                          Preferred Time *
+                        </label>
+                        <div className="grid grid-cols-3 gap-2">
+                          {timeSlots.map((time) => (
+                            <label
+                              key={time}
+                              className={`relative cursor-pointer rounded-lg border-2 p-3 text-center transition-all duration-200 ${
+                                watch('preferredTime') === time
+                                  ? 'border-primary-500 bg-primary-50 text-primary-700'
+                                  : 'border-secondary-200 hover:border-secondary-300'
+                              }`}
+                            >
+                              <input
+                                type="radio"
+                                value={time}
+                                {...register('preferredTime')}
+                                className="sr-only"
+                              />
+                              {time}
+                            </label>
+                          ))}
+                        </div>
+                        {errors.preferredTime && (
+                          <p className="text-red-600 text-sm mt-1">{errors.preferredTime.message}</p>
+                        )}
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-secondary-700 mb-2">
+                          Additional Notes (Optional)
+                        </label>
+                        <textarea
+                          {...register('notes')}
+                          rows={3}
+                          className="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none transition-all duration-200 hover:border-primary-300"
+                          placeholder="Any special requests or information we should know..."
+                        />
+                      </div>
+                    </div>
+
+                    {/* Payment Method */}
+                    <div className="space-y-4">
+                      <h3 className="font-semibold text-lg text-secondary-900 border-b border-secondary-200 pb-2">
+                        Preferred Payment Method *
+                      </h3>
+                      
+                      <div className="grid grid-cols-1 gap-4">
+                        {/* Cash Option */}
+                        <label className={`relative cursor-pointer rounded-xl border-2 p-5 transition-all duration-300 transform hover:scale-[1.02] ${
+                          watch('paymentMethod') === 'cash'
+                            ? 'border-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 shadow-lg'
+                            : 'border-secondary-200 hover:border-primary-300 hover:shadow-md bg-white'
+                        }`}>
+                          <input
+                            type="radio"
+                            value="cash"
+                            {...register('paymentMethod')}
+                            className="sr-only"
+                          />
+                          <div className="flex items-center space-x-4">
+                            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                              <span className="text-2xl">💰</span>
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="font-bold text-lg text-secondary-900">Cash</h4>
+                              <p className="text-sm text-secondary-600 mt-1">Pay in person at appointment</p>
+                              <div className="flex items-center mt-2">
+                                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                <span className="text-xs text-green-600 font-medium">Instant Payment</span>
+                              </div>
+                            </div>
+                            {watch('paymentMethod') === 'cash' && (
+                              <div className="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
+                                <div className="w-2 h-2 bg-white rounded-full"></div>
+                              </div>
+                            )}
+                          </div>
+                        </label>
+
+                        {/* Zelle Option */}
+                        <label className={`relative cursor-pointer rounded-xl border-2 p-5 transition-all duration-300 transform hover:scale-[1.02] ${
+                          watch('paymentMethod') === 'zelle'
+                            ? 'border-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 shadow-lg'
+                            : 'border-secondary-200 hover:border-primary-300 hover:shadow-md bg-white'
+                        }`}>
+                          <input
+                            type="radio"
+                            value="zelle"
+                            {...register('paymentMethod')}
+                            className="sr-only"
+                          />
+                          <div className="flex items-center space-x-4">
+                            <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center p-2">
+                              <img 
+                                src="/images/zelle-logo1.png" 
+                                alt="Zelle" 
+                                className="w-full h-full object-contain"
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="font-bold text-lg text-secondary-900">Zelle</h4>
+                              <p className="text-sm text-secondary-600 mt-1">Send to: [Your Zelle Info]</p>
+                              <div className="flex items-center mt-2">
+                                <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                                <span className="text-xs text-blue-600 font-medium">Bank Transfer</span>
+                              </div>
+                            </div>
+                            {watch('paymentMethod') === 'zelle' && (
+                              <div className="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
+                                <div className="w-2 h-2 bg-white rounded-full"></div>
+                              </div>
+                            )}
+                          </div>
+                        </label>
+
+                        {/* PayPal Option */}
+                        <label className={`relative cursor-pointer rounded-xl border-2 p-5 transition-all duration-300 transform hover:scale-[1.02] ${
+                          watch('paymentMethod') === 'paypal'
+                            ? 'border-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 shadow-lg'
+                            : 'border-secondary-200 hover:border-primary-300 hover:shadow-md bg-white'
+                        }`}>
+                          <input
+                            type="radio"
+                            value="paypal"
+                            {...register('paymentMethod')}
+                            className="sr-only"
+                          />
+                          <div className="flex items-center space-x-4">
+                            <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center p-2">
+                              <img 
+                                src="/images/Screenshot_2025-11-03_at_12.10.13_PM-removebg-preview.png" 
+                                alt="PayPal" 
+                                className="w-full h-full object-contain"
+                              />
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="font-bold text-lg text-secondary-900">PayPal</h4>
+                              <p className="text-sm text-secondary-600 mt-1">$20 deposit required at booking</p>
+                              <div className="flex items-center mt-2">
+                                <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                                <span className="text-xs text-blue-600 font-medium">Online Payment</span>
+                              </div>
+                            </div>
+                            {watch('paymentMethod') === 'paypal' && (
+                              <div className="w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center">
+                                <div className="w-2 h-2 bg-white rounded-full"></div>
+                              </div>
+                            )}
+                          </div>
+                        </label>
+                      </div>
+                      
+                      {errors.paymentMethod && (
+                        <p className="text-red-600 text-sm">{errors.paymentMethod.message}</p>
+                      )}
+                    </div>
+
+                    {/* Submit Button */}
+                    <div className="flex justify-end pt-6 border-t border-secondary-200">
+                      <Button
+                        type="submit"
+                        loading={isSubmitting}
+                        disabled={isSubmitting}
+                        className="px-8 py-3 font-medium bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 shadow-lg"
+                      >
+                        {isSubmitting ? 'Booking...' : '✨ Book Appointment'}
+                      </Button>
                     </div>
                   </form>
                 </CardContent>
